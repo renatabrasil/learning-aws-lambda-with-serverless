@@ -10,7 +10,7 @@ class DynamoDB:
 
     def get_table(self):
         if not self.__aws_resource:
-            dynamo = boto3.resource('dynamodb', region='sa-east-1')
+            dynamo = boto3.resource('dynamodb')
             self.__aws_resource = dynamo.Table(self.__table)
 
         return self.__aws_resource
