@@ -60,11 +60,15 @@ provider:
 
 functions:
   hello:
-    handler: handler.hello
+    handler: src/handler.hello
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
-#    events:
+    events:
+      - sqs:
+        arn: arn:aws:sqs:sa-east-1:251675404411:hello-messages
+        batchSize: 5
+        maximumBatchingWindow: 60
 #      - httpApi:
 #          path: /users/create
 #          method: get

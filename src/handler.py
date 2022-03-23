@@ -1,7 +1,19 @@
 import json
 
+from src.config.bootstrap import bootstrap_di
+
 
 def hello(event, context):
+    print(event)
+
+    service = bootstrap_di()
+
+    for record in event["Records"]:
+        message =record["body"]
+
+        service.execute(request=message)
+
+        print("só a mensagem " + message)
     body = {
         "message": "Go Serverless v1.0! Your function executed successfully!",
         "input": event
