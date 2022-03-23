@@ -16,6 +16,7 @@ service: hello-world-lambda
 app: learning-aws-lambda-with-serverless
 org: renatabrasil
 
+
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
 frameworkVersion: '2'
