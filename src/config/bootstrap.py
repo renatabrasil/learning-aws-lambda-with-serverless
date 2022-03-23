@@ -6,7 +6,7 @@ from src.use_cases.hello_service import HelloService
 def bootstrap_di():
     dynamodb = DynamoDB(table="HelloRegistry")
 
-    repository = HelloRepository(dynamodb=dynamodb)
+    repository = HelloRepository(dynamoDB=dynamodb)
     service = HelloService(repository=repository)
 
     return service
