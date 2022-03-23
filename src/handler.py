@@ -11,6 +11,7 @@ def hello(event, context):
     for record in event["Records"]:
         message =record["body"]
 
+
         service.execute(request=message)
 
         print("só a mensagem " + message)
