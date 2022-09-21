@@ -16,4 +16,6 @@ class DynamoDB:
         return self.__aws_resource
 
     def put_item(self, item):
+        print("Putting item on table")
         self.get_table().put_item(Item={'pk': str(uuid.uuid1()), 'sk': str(uuid.uuid4()), 'message': item})
+        print("Done putting item on table")
