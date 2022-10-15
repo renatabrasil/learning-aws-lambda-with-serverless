@@ -60,9 +60,10 @@ provider:
 #    - include-me.py
 #    - include-me-dir/**
 
+
 functions:
   hello:
-    handler: src/handler.hello
+    handler: ../../src/handler.hello
 #    events:
 #      - sqs:
 #        arn: arn:aws:sqs:sa-east-1:251675404411:hello-messages
