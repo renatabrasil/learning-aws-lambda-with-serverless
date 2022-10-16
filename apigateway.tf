@@ -65,7 +65,7 @@ resource "aws_api_gateway_integration" "integration" {
   http_method             = aws_api_gateway_method.MyDemoMethod.http_method
   integration_http_method = "GET"
   type                    = "AWS_PROXY"
-  uri                     = var.lambda_invoke_arn
+  uri                     = "arn:aws:apigateway:${var.my_region}:lambda:path/2015-03-31/functions/${var.lambda_arn}/invocations"
 }
 
 # Lambda
