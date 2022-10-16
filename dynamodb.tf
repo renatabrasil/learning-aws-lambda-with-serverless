@@ -16,10 +16,10 @@ resource "aws_dynamodb_table" "productsdb" {
     type = "S"
   }
 
-  attribute {
-    name = "unit_price"
-    type = "N"
-  }
+  #  attribute {
+  #    name = "unit_price"
+  #    type = "N"
+  #  }
 
   ttl {
     attribute_name = "TimeToExist"
@@ -37,7 +37,7 @@ resource "aws_dynamodb_table" "productsdb" {
   #  }
 
   tags = {
-    Name        = "dynamodb-table-1"
-    Environment = "production"
+    Name        = "dynamodb-table-products"
+    Environment = "dev"
   }
 }
