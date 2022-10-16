@@ -4,10 +4,6 @@ variable "lambda_arn" {
   default     = "arn:aws:lambda:sa-east-1:251675404411:function:hello-world-lambda-dev-hello"
 }
 
-variable "lambda_invoke_arn" {
-  default = "arn:aws:execute-api:sa-east-1:251675404411:l9izdkmlve/*/GET/mydemoresource"
-}
-
 
 variable "lambda_name" {
   type        = string
