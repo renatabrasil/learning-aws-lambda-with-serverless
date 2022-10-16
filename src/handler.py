@@ -8,21 +8,8 @@ def hello(event, context):
 
     service = bootstrap_di()
 
-    for record in event["Records"]:
-        message =record["body"]
-
-
-        service.execute(request=message)
-
-        print("só a mensagem " + message)
-    body = {
-        "message": "Go Serverless v1.0! Your function executed successfully!",
-        "input": event
-    }
-
     response = {
         "statusCode": 200,
-        "body": json.dumps(body)
     }
 
     return response
