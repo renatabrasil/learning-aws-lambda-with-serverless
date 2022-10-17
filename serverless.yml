@@ -70,8 +70,10 @@ functions:
 #        batchSize: 5
 #        maximumBatchingWindow: 60
       - http:
-          path: /products
+          path: products
           method: get
+          cors:
+            headers: '*'
 #      - websocket: $connect
 #      - s3: ${env:BUCKET}
 #      - schedule: rate(10 minutes)
