@@ -1,12 +1,12 @@
 from src.aws.dynamodb import DynamoDB
-from src.repositories.hello_repository import HelloRepository
-from src.use_cases.hello_service import HelloService
+from src.repositories.hello_repository import ProductsRepository
+from src.use_cases.hello_service import CreateProductService
 
 
 def bootstrap_di():
-    dynamodb = DynamoDB(table="HelloRegistry")
+    dynamodb = DynamoDB(table="Products")
 
-    repository = HelloRepository(dynamoDB=dynamodb)
-    service = HelloService(repository=repository)
+    repository = ProductsRepository(dynamoDB=dynamodb)
+    service = CreateProductService(repository=repository)
 
     return service

@@ -2,13 +2,8 @@ import json
 
 from src.config.bootstrap import bootstrap_di
 
-
-def hello(event, context):
-    print(event)
-
-    service = bootstrap_di()
-
-    products = [
+service = bootstrap_di()
+products = [
         {
             "id": "4e9257d5-0b3f-4246-8420-979661e650a5",
             "name": "Bola",
@@ -26,7 +21,7 @@ def hello(event, context):
             "name": "Bola de tenis",
             "quantity": 48,
             "unit_price": 100.34
-        },{
+        }, {
             "id": "a320efda-11d2-4e20-86d8-02eff30ec074",
             "name": "Rede de Volei",
             "quantity": 11,
@@ -34,13 +29,32 @@ def hello(event, context):
         }
     ]
 
+
+def create_product(event, context):
+    print(f"criar produto = {event}")
+    product = event.get("body", None)
+
+    products.append(product)
+    service.execute(product)
+
+    return format_response(status=201)
+
+
+def hello(event, context):
+    print(f"listar produtos = {event}")
+
+    response = format_response(status=200, message=products)
+
+    return response
+
+
+def format_response(status: int, message: str = None):
     response = {
-        "statusCode": 200,
+        "statusCode": status,
         "headers": {
             'Access-Control-Allow-Origin': '*',
             'Access-Control-Allow-Credentials': True,
         },
-        "body": json.dumps(products),
+        "body": json.dumps(message),
     }
-
     return response

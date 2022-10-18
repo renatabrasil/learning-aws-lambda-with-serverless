@@ -1,7 +1,7 @@
 from src.aws.dynamodb import DynamoDB
 
 
-class HelloRepository:
+class ProductsRepository:
     def __init__(self, dynamoDB: DynamoDB):
         self.__dynamoDB = dynamoDB
 
