@@ -1,8 +1,8 @@
-from src.repositories.hello_repository import HelloRepository
+from src.repositories.hello_repository import ProductsRepository
 
 
-class HelloService:
-    def __init__(self, repository: HelloRepository):
+class CreateProductService:
+    def __init__(self, repository: ProductsRepository):
         self.__repository = repository
 
     def execute(self, request):

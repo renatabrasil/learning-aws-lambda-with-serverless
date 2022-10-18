@@ -80,6 +80,17 @@ functions:
           method: get
           cors:
             headers: '*'
+  createProducts:
+    handler: src/handler.create_product
+    environment:
+      DYNAMODB_PRODUCTS_TABLE: Products
+      DYNAMODB_PRODUCTS_TABLE_ARN: arn:aws:dynamodb:sa-east-1:251675404411:table/Products
+    events:
+      - http:
+          path: products
+          method: post
+          cors:
+            headers: '*'
 #      - websocket: $connect
 #      - s3: ${env:BUCKET}
 #      - schedule: rate(10 minutes)
