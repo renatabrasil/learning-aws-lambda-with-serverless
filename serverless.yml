@@ -27,6 +27,12 @@ provider:
   role: myRole
   lambdaHashingVersion: 20201221
   region: sa-east-1
+  apiGateway:
+    metrics: true
+  logs:
+    restApi: true
+
+
 
 # you can overwrite defaults here
 #  stage: dev
