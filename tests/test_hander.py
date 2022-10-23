@@ -5,7 +5,9 @@ from src.handler import hello, create_product
 
 
 class TestHandler(unittest.TestCase):
-    def test_handler(self):
+
+    @patch('src.use_cases.hello_service.CreateProductService.execute', return_value=None)
+    def test_handler(self, mock_service):
         request = {
             "resource": "/",
             "path": "/",
@@ -125,7 +127,8 @@ class TestHandler(unittest.TestCase):
                 "httpMethod": "POST",
                 "apiId": "j3azlsj0c4"
             },
-            "body": "{\r\n    \"id\": \"23131\",\r\n    \"name\": \"Bola de futebol\"\r\n}",
+            "body": "{\r\n    \"id\": \"23131\",\r\n    \"name\": \"Bola de futebol\", \r\n    \"unit_price\": "
+                    "3.45\r\n}",
             "isBase64Encoded": False
         }
 
