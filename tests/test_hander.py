@@ -1,4 +1,5 @@
 import unittest
+from unittest.mock import patch
 
 from src.handler import hello, create_product
 
@@ -67,7 +68,8 @@ class TestHandler(unittest.TestCase):
         hello(request, None)
         self.assertEqual(sum([1, 2, 3]), 6, "Should be 6")
 
-    def test_create_product(self):
+    @patch('src.use_cases.hello_service.CreateProductService.execute', return_value=None)
+    def test_create_product(self, mock_create_product_service):
         request = {
             "resource": "/",
             "path": "/",
@@ -123,7 +125,7 @@ class TestHandler(unittest.TestCase):
                 "httpMethod": "POST",
                 "apiId": "j3azlsj0c4"
             },
-            "body": "{'id': '123', 'name': 'oi'}",
+            "body": "{\r\n    \"id\": \"23131\",\r\n    \"name\": \"Bola de futebol\"\r\n}",
             "isBase64Encoded": False
         }
 
