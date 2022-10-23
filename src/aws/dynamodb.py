@@ -17,5 +17,7 @@ class DynamoDB:
 
     def put_item(self, item: dict):
         print("Putting item on table")
-        self.get_table().put_item(Item={'id': str(uuid.uuid1()), 'name': item.get("name", None), 'message': item})
+        self.get_table().put_item(
+            Item={'id': str(uuid.uuid1()), 'name': item.get("name", None), 'unit_price': item.get("unit_price", None),
+                  'message': item})
         print("Done putting item on table")
