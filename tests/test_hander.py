@@ -5,7 +5,9 @@ from src.handler import hello, create_product
 
 
 class TestHandler(unittest.TestCase):
-    def test_handler(self):
+
+    @patch('src.use_cases.hello_service.CreateProductService.execute', return_value=None)
+    def test_handler(self, mock_service):
         request = {
             "resource": "/",
             "path": "/",
