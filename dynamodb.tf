@@ -16,10 +16,10 @@ resource "aws_dynamodb_table" "productsdb" {
     type = "S"
   }
 
-    attribute {
-      name = "unit_price"
-      type = "N"
-    }
+  attribute {
+    name = "unit_price"
+    type = "N"
+  }
 
   #  ttl {
   #    attribute_name = "TimeToExist"
