@@ -1,4 +1,3 @@
 boto3
 moto
 injector
-simplejson==3.17.6
