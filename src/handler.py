@@ -1,4 +1,5 @@
 import json
+from decimal import Decimal
 
 from src.config.bootstrap import bootstrap_di
 
@@ -32,7 +33,7 @@ products = [
 
 def create_product(event, context):
     print(f"criar produto = {event}")
-    product = json.loads(event.get("body", None))
+    product = json.loads(event.get("body", None), parse_float=Decimal)
 
     products.append(product)
     service.execute(product)

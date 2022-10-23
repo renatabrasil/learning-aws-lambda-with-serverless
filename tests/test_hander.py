@@ -125,7 +125,8 @@ class TestHandler(unittest.TestCase):
                 "httpMethod": "POST",
                 "apiId": "j3azlsj0c4"
             },
-            "body": "{\r\n    \"id\": \"23131\",\r\n    \"name\": \"Bola de futebol\"\r\n}",
+            "body": "{\r\n    \"id\": \"23131\",\r\n    \"name\": \"Bola de futebol\", \r\n    \"unit_price\": "
+                    "3.45\r\n}",
             "isBase64Encoded": False
         }
 
