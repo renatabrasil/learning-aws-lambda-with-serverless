@@ -32,6 +32,10 @@ provider:
   logs:
     restApi: true
 
+custom:
+  dynamodb:
+    productsTableArn: arn:aws:dynamodb:sa-east-1:251675404411:table/Products
+
 
 
 # you can overwrite defaults here
@@ -84,7 +88,7 @@ functions:
     handler: src/handler.create_product
     environment:
       DYNAMODB_PRODUCTS_TABLE: Products
-      DYNAMODB_PRODUCTS_TABLE_ARN: arn:aws:dynamodb:sa-east-1:251675404411:table/Products
+      DYNAMODB_PRODUCTS_TABLE_ARN: ${self:custom.dynamodb.productsTableArn}
     events:
       - http:
           path: products
@@ -168,7 +172,7 @@ resources:
                 - Effect: Allow
                   Action:
                     - dynamodb:PutItem
-                  Resource: "arn:aws:dynamodb:sa-east-1:251675404411:table/HelloRegistry"
+                  Resource: ${self:custom.dynamodb.productsTableArn}
 #  Outputs:
 #     NewOutput:
 #       Description: "Description for the output"
