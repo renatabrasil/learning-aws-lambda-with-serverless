@@ -35,6 +35,7 @@ provider:
 custom:
   dynamodb:
     productsTableArn: arn:aws:dynamodb:sa-east-1:251675404411:table/Products
+    basketsTableArn: arn:aws:dynamodb:sa-east-1:251675404411:table/Baskets
 
 
 
@@ -86,12 +87,25 @@ functions:
             headers: '*'
   createProducts:
     handler: src/handler.create_product
+    #    onError: arn:aws:sns:sa-east-1:251675404411:ecommerce-products-dlq
     environment:
       DYNAMODB_PRODUCTS_TABLE: Products
       DYNAMODB_PRODUCTS_TABLE_ARN: ${self:custom.dynamodb.productsTableArn}
     events:
       - http:
           path: products
+          method: post
+          cors:
+            headers: '*'
+  createBaskets:
+    handler: src/handler.checkout_basket
+    #    onError: arn:aws:sns:sa-east-1:251675404411:ecommerce-products-dlq
+    environment:
+      DYNAMODB_BASKETS_TABLE: Baskets
+      DYNAMODB_BASKETS_TABLE_ARN: ${self:custom.dynamodb.basketsTableArn}
+    events:
+      - http:
+          path: baskets
           method: post
           cors:
             headers: '*'
