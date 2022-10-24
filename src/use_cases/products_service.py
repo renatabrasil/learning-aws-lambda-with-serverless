@@ -1,4 +1,4 @@
-from src.repositories.hello_repository import ProductsRepository
+from src.repositories.products_repository import ProductsRepository
 
 
 class CreateProductService:
@@ -7,3 +7,4 @@ class CreateProductService:
 
     def execute(self, request):
         self.__repository.add_item(request)
+

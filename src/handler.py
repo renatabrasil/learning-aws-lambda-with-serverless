@@ -1,11 +1,10 @@
 import json
 from decimal import Decimal
 
-
-from src.config.bootstrap import bootstrap_di
+from src.config.bootstrap import products_service, baskets_service
 from src.utils.utils import Encoder
 
-service = bootstrap_di()
+
 products = [
     {
         "id": "4e9257d5-0b3f-4246-8420-979661e650a5",
@@ -38,9 +37,18 @@ def create_product(event, context):
     product = json.loads(event.get("body", None), parse_float=Decimal)
 
     products.append(product)
-    service.execute(product)
+    products_service.execute(product)
 
     return format_response(status=201)
+
+
+def checkout_basket(event, context):
+    print(f"event checkout comming = {event}")
+    basket = json.loads(event.get("body", None), parse_float=Decimal)
+
+    baskets_service.execute(basket)
+
+    return format_response(status=203)
 
 
 def hello(event, context):
@@ -51,7 +59,7 @@ def hello(event, context):
     return response
 
 
-def format_response(status: int, message: str = None):
+def format_response(status: int, message: str = ""):
     response = {
         "statusCode": status,
         "headers": {
