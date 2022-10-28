@@ -17,6 +17,10 @@ from src.use_cases.products_service import CreateProductService
 
 # bootstrap_di()
 
+products_service = None
+baskets_service = None
+
+
 # Products
 if os.environ.__contains__("DYNAMODB_PRODUCTS_TABLE"):
     products_db = DynamoDB(table=os.environ['DYNAMODB_PRODUCTS_TABLE'])
