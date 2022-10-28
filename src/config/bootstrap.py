@@ -18,11 +18,14 @@ from src.use_cases.products_service import CreateProductService
 # bootstrap_di()
 
 # Products
-products_db = DynamoDB(table=os.environ['DYNAMODB_PRODUCTS_TABLE'])
-products_repository = ProductsRepository(dynamoDB=products_db)
-products_service = CreateProductService(repository=products_repository)
+if os.environ['DYNAMODB_PRODUCTS_TABLE']:
+    products_db = DynamoDB(table=os.environ['DYNAMODB_PRODUCTS_TABLE'])
+    products_repository = ProductsRepository(dynamoDB=products_db)
+    products_service = CreateProductService(repository=products_repository)
+
 
 # Baskets
-baskets_db = DynamoDB(table=os.environ['DYNAMODB_BASKETS_TABLE'])
-baskets_repository = BasketsRepository(dynamoDB=baskets_db)
-baskets_service = CreateBasketService(repository=baskets_repository)
+if os.environ['DYNAMODB_BASKETS_TABLE']:
+    baskets_db = DynamoDB(table=os.environ['DYNAMODB_BASKETS_TABLE'])
+    baskets_repository = BasketsRepository(dynamoDB=baskets_db)
+    baskets_service = CreateBasketService(repository=baskets_repository)
