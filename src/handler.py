@@ -4,7 +4,6 @@ from decimal import Decimal
 from src.config.bootstrap import products_service, baskets_service
 from src.utils.utils import Encoder
 
-
 products = [
     {
         "id": "4e9257d5-0b3f-4246-8420-979661e650a5",
@@ -33,6 +32,8 @@ products = [
 
 
 def create_product(event, context):
+    # bootstrap_products_di()
+
     print(f"criar produto = {event}")
     product = json.loads(event.get("body", None), parse_float=Decimal)
 
@@ -43,6 +44,8 @@ def create_product(event, context):
 
 
 def checkout_basket(event, context):
+    # bootstrap_baskets_di()
+
     print(f"event checkout comming = {event}")
     basket = json.loads(event.get("body", None), parse_float=Decimal)
 
