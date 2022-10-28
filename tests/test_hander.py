@@ -2,7 +2,7 @@ import os
 import unittest
 from unittest.mock import patch
 
-with patch.dict(os.environ, {"DYNAMODB_PRODUCTS_TABLE": "ROUGE", "DYNAMODB_BASKETS_TABLE": "test"}, clear=True):
+with patch.dict(os.environ, {"DYNAMODB_BASKETS_TABLE": "test"}, clear=True):
     from src.handler import hello, create_product
 
 
