@@ -8,6 +8,7 @@ class DynamoDB:
 
     def get_table(self):
         if not self.__aws_resource:
+            # Boto3 config
             dynamo = boto3.resource('dynamodb')
             self.__aws_resource = dynamo.Table(self.__table)
 
