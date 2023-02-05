@@ -1,5 +1,5 @@
 resource "aws_cloudwatch_event_bus" "checkout-bus" {
-  name              = "checkout-bus"
+  name = "checkout-bus"
 }
 
 resource "aws_cloudwatch_event_rule" "checkout-rule" {
