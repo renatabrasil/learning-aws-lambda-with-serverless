@@ -37,12 +37,6 @@ custom:
     productsTableArn: arn:aws:dynamodb:sa-east-1:251675404411:table/Products
     basketsTableArn: arn:aws:dynamodb:sa-east-1:251675404411:table/Baskets
 
-
-
-# you can overwrite defaults here
-#  stage: dev
-#  region: us-east-1
-
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
 #    - Effect: "Allow"
@@ -59,9 +53,7 @@ custom:
 #            - "Ref" : "ServerlessDeploymentBucket"
 #            - "/*"
 
-# you can define service wide environment variables here
-#  environment:
-#    variable1: value1
+
 
 # you can add packaging information here
 #package:
